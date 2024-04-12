@@ -5,7 +5,7 @@ import React from 'react'
 import {useState} from "react"
 import {Container,Paper,Typography,Stack,Avatar,IconButton} from "@mui/material"
 // contaier provide layout container, 
-// and paper creates a paper like surface with elevation and shadows
+// and paper creates a paper like surface with elevation(0-24) and shadows
 // typography===display text with predefined styles,ensure consistent typography across app
 // stack se component ke upar component rkhte
 

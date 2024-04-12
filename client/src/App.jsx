@@ -14,7 +14,9 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {lazy} from "react"
 
 // lazy FUNCTION allows to dynamically import react components
-// used for code-splitting,i.e. only load then when needed(route pr req bheji)
+// used for code-splitting,i.e. 
+// only load then when needed(route pr req bheji)
+
 const Home=lazy(
 ()=>import("./pages/Home.jsx")
 );
@@ -27,52 +29,58 @@ const Groups=lazy(
 const Chat=lazy(
 ()=>import("./pages/Chat.jsx")
 )
+const NotFound=lazy(
+()=>import("./pages/NotFound.jsx")
+)
 // import Home from "./pages/Home.jsx";
 
 let user=true;
 
 import  ProtectRoute  from "./components/auth/ProtectRoute.jsx";
+// ProtectRoute user-defined component
+// isse agar user login nhi h(user==false) to redirect to "/login"
+// agar h to ProtectRoute k jo child component hoga
+
 
 const App = () => {
   return (
     <BrowserRouter>
 
         <Routes>
-          <Route element={<ProtectRoute/>}>
+
+          {/* <Route path="/asmit" element={<ProtectRoute user={user}/>}> */}
+          <Route element={<ProtectRoute user={user} /*redirect='/groups'*/ />}>
+          {/* ProtectRoute ke 3 child, one of them render hoga */}
+          {/* samajh lo wrap kiya routes ko ,jb 3 child ke routes me req to pehle ProtectRoute jayega */}
+
+
             <Route path="/" element={<Home/>}/>
             <Route path="/chat/:chatId" element={<Chat/>}/>
             <Route path="/groups" element={<Groups/>}/>
+
           </Route>
 
-        </Routes>
-
-          
-          
-          
-          {/* agar same path to pehle wala chlega */}
-
-            {/* <Route path="/" element={<Home/>}/> */}
-
-            < Route 
-            path="/" 
+          {/* <Route path="/login" element={<Login/>}/> */}
+          <Route
+            path="/login"
             element={
-              <ProtectRoute user={user}>
-                <Home/>
+
+              <ProtectRoute user={!user} redirect="/">
+
+                <Login/>
+
               </ProtectRoute>
+
             }
-            />
+          />
 
+          {/* Not found */}
+          <Route path="*" element={<NotFound/>}/>
 
-            <Route path="/chat/:chatId" element={<Chat/>}/>
-            {/* :chatid dena compulsary  */}
-            <Route path="/groups" element={<Groups/>}/>
-            {/* home lazy function se return hua, dynamic loading */}
-            <Route path="/login" element={<Login/>}/>
-            
         </Routes>
-
     </BrowserRouter>
   )
 }
 
 export default App
+

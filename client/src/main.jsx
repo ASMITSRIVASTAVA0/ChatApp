@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+// ReactDOm used to render react elem into dom
+
 import App from './App.jsx'
 // import './index.css'
 
@@ -13,7 +15,7 @@ import {HelmetProvider} from "react-helmet-async"
 
 // react-helmet library allow to manage document head tags
 // line <title> <meta> <link>
-// helmet provider serves as c context provider
+// helmet provider serves as context provider
 // helmet provider enable asynchronous behaviour for managing documents head
 // this means you can dynamically change the content of head tags based on state or probs
 
