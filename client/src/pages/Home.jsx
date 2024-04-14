@@ -8,4 +8,7 @@ const Home = () => {
 }
 
 // export default Home
+
+// AppLayout high order component ko call joki home component 
+// ko as parameter le rha
 export default AppLayout()(Home);

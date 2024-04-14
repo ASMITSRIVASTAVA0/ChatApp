@@ -17,6 +17,11 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt"
 import { VisuallyHiddenInput } from '../components/styles/StyledComponents'
 
 import {useInputValidation,useStrongPassword,useFileHandler} from "6pp";
+// useInputValidation=
+//      dont allow special char in input
+// useStrongPassword=
+//      8digit long,uppercase,lowercase,digit,etc
+
 
 import { usernameValidator } from '../utils/validators'
 
@@ -176,7 +181,10 @@ const Login = () => {
                     height:"10rem",
                     objectFit:"contain",
                   }}
+                  
+                  // const avatar=useFileHandler("single");//defined in 6pp package
                   src={avatar.preview}
+
                   >
                     
                   </Avatar>
@@ -195,12 +203,12 @@ const Login = () => {
                     }}
                     // sementic meaning provide krta component
                     component="label"
-                    >
+                  >
                         
-                        <>
-                          <CameraAltIcon/>
-                          <VisuallyHiddenInput type="file" onChange={avatar.changeHandler}/>
-                        </>
+                      <>
+                        <CameraAltIcon/>
+                        <VisuallyHiddenInput type="file" onChange={avatar.changeHandler}/>
+                      </>
                     
 
                   </IconButton>

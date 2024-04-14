@@ -15,9 +15,11 @@ import {HelmetProvider} from "react-helmet-async"
 
 // react-helmet library allow to manage document head tags
 // line <title> <meta> <link>
-// helmet provider serves as context provider
-// helmet provider enable asynchronous behaviour for managing documents head
-// this means you can dynamically change the content of head tags based on state or probs
+// helmet provider serves as content provider
+// helmet provider enable asynchronous behaviour 
+// for managing documents head
+// this means you can dynamically change the content 
+// of head tags based on state or probs
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

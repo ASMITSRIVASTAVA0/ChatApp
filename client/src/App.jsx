@@ -35,10 +35,11 @@ const NotFound=lazy(
 // import Home from "./pages/Home.jsx";
 
 let user=true;
+// let user=false;
 
 import  ProtectRoute  from "./components/auth/ProtectRoute.jsx";
 // ProtectRoute user-defined component
-// isse agar user login nhi h(user==false) to redirect to "/login"
+// isse agar user login nhi h(user==false) to redirect to "/asmitpath"
 // agar h to ProtectRoute k jo child component hoga
 
 
@@ -68,7 +69,7 @@ const App = () => {
               <ProtectRoute user={!user} redirect="/">
 
                 <Login/>
-
+              
               </ProtectRoute>
 
             }
