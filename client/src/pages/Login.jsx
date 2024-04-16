@@ -21,6 +21,8 @@ import {useInputValidation,useStrongPassword,useFileHandler} from "6pp";
 //      dont allow special char in input
 // useStrongPassword=
 //      8digit long,uppercase,lowercase,digit,etc
+// userFileHandler=
+//      visuallyhiddencomponent ke liye
 
 
 import { usernameValidator } from '../utils/validators'
@@ -31,7 +33,10 @@ const Login = () => {
   const [isLogin, setIsLogin] =useState(true);
 
   // const toggleLogin=()=>setIsLogin(false);
-  const toggleLogin=()=>setIsLogin((prev)=>!prev);
+
+  const toggleLogin=()=>{
+    setIsLogin((prev)=>!prev)
+  };
 
   
   const name=useInputValidation("");

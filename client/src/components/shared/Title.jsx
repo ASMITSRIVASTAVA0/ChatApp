@@ -6,6 +6,9 @@ import { Helmet } from 'react-helmet-async'
 const Title=({title="Chat",description="this is description"})=>{
   // return <div>Title</div>
   return <Helmet>
+
+
+    {/* ye HTML  me head me jo title hota h */}
     <title>{title}</title>
     <meta name="description" content={description}/>
   </Helmet>

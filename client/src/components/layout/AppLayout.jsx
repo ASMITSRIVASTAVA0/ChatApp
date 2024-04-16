@@ -7,31 +7,40 @@ import {Grid} from "@mui/material";
 //     <div>AppLayout</div>
 //   )
 // }
+
+
+// higher order component, jisme wrappedcomponent as para aya
 const AppLayout=()=>(WrappedComponent)=>{
     return (props)=>{
         return (
             // <div>
             <>
-                <Title title={"asmit chat"}/>
-                {/* <div>Header</div> */}
-                <Header />
 
+                {/* user defined Title */}
+                <Title title={"asmit header chat"}/>
+                {/* <div>Header</div> */}
+
+                {/* user defined header */}
+                <Header />
+                {/* <br></br> */}
                 <Grid 
                 container 
                 // height={"100vh"} 
                 // style={{height:"100vh"}}
                 // height={"calc(100vh-1rem)"}
                 // style={{height:"calc(100vh-1rem)"}}
+
+                // ht=100% of vriwport height-1rem
                 style={{height:"calc(100vh - 1rem)"}}
                 // bgcolor="primary.main"
                 >
                     <Grid
                     item
-                    sm={4}//small me 4 
+                    sm={3}//small me 4 
                     md={3}
                     sx={{display:{xs:"none",sm:"block"}}}
                     height={"100%"}
-                    // bgcolor="primary.main"
+                    bgcolor="green"
                     >
                         First
                     </Grid>
@@ -39,7 +48,7 @@ const AppLayout=()=>(WrappedComponent)=>{
                     <Grid
                     item
                     xs={12}//main screen to puri grid
-                    sm={8}
+                    sm={5}
                     lg={6}
                     height={"100%"}
                     bgcolor="primary.main"
@@ -49,7 +58,7 @@ const AppLayout=()=>(WrappedComponent)=>{
 
                     <Grid 
                     item
-                    // xs={4}
+                    xs={4}
                     md={4}
                     lg={3}
                     sx={{
