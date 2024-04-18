@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import {AppBar, Box, Icon, IconButton, Toolbar,Tooltip,Typography} from "@mui/material";
 // import {orange} from '../constants/color';
 // import "./constants/color.js";
@@ -10,6 +10,31 @@ import {useState} from "react";
 import {Add as AddIcon, Group as GroupIcon, Logout as LogoutIcon, Menu as MenuIcon,Notifications as NotificationsIcon,Search as SearchIcon} from "@mui/icons-material"
 
 import { useNavigate } from 'react-router-dom';
+// import SearchDialog from '../specific/SearchDialog';
+
+
+
+
+
+// box=
+//    similar to div, but provide spacing,alignment,styling option
+// AppBar=
+//    fixed position bar used as header
+// Toolbar=
+//    container for AppBar, or standalone component,
+// Tooltip=
+//    provide info when hover over an elem inside it
+
+const SearchDialog=lazy(()=>{
+  import("../specific/SearchDialog.jsx");
+})
+const Notifications=lazy(()=>{
+  import("../specific/Notifications.jsx");
+})
+const NewGroup=lazy(()=>{
+  import("../specific/NewGroup.jsx");
+})
+
 
 
 
@@ -26,12 +51,12 @@ const Header = () => {
 
 
   const handleMobile=()=>{
-    // console.log("mobile");
-    setIsMobile((prev)=>!(prev));
+    console.log("mobile");
+    // setIsMobile((prev)=>!(prev));
   }
   const openSearch=()=>{
-    // console.log("search");
-    setIsSearch((prev)=>!(prev));
+    console.log("search");
+    // setIsSearch((prev)=>!(prev));
   }
   const openNewGroup=()=>{
     // console.log("newgroup");
@@ -47,7 +72,9 @@ const Header = () => {
 
   const navigate= useNavigate();
 
-  const navigateToGroup=()=>navigate("/groups");
+  const navigateToGroup=()=>{
+    navigate("/groups");
+  }
 
   const logoutHandler=()=>{
     console.log("logout");
@@ -56,7 +83,12 @@ const Header = () => {
     setIsNotification((prev)=>!(prev));
   }
 
+  
+
     return <>
+
+        {/* div==box */}
+
         <Box
         sx={{flexGrow:1,
             bgcolor:""}}
@@ -110,6 +142,7 @@ const Header = () => {
                 bgcolor:"red",
                 flexGrow:1,
                 // width:"50%"
+                // widht:"6rem",
               }}
               />
 
@@ -166,9 +199,42 @@ const Header = () => {
 
           {/* asmitbox */}
         </Box>
+
+        {
+          isSearch&&(
+            // <SearchDialog/>
+            <Suspense fallback={<div>Loading...</div>}>
+              <SearchDialog/>
+            </Suspense>
+          )
+        }
+
+        
+        {
+          isNotification&&(
+            // <SearchDialog/>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Notifications/>
+            </Suspense>
+          )
+        }
+
+
+        {
+          isNewGroup&&(
+            // <SearchDialog/>
+            <Suspense fallback={<div>Loading...</div>}>
+              <NewGroup/>
+            </Suspense>
+          )
+        }
+
+
     </>
 }
 
+
+// iconbtn neeche kuki tabhi onClick func ki value pta hogi
 const IconBtn=({title,icon,onClick})=>{
   return (
     <Tooltip title={title}>

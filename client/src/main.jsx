@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 // ReactDOm used to render react elem into dom
 
-import App from './App.jsx'
+import ChatApp from './ChatApp.jsx'
+import App from "./App.jsx"
 // import './index.css'
 
 import {CssBaseline} from "@mui/material"
@@ -12,6 +13,7 @@ import {CssBaseline} from "@mui/material"
 // import * as MUI from "@mui/material"
 
 import {HelmetProvider} from "react-helmet-async"
+import { BrowserRouter, Routes,Route } from 'react-router-dom'
 
 // react-helmet library allow to manage document head tags
 // line <title> <meta> <link>
@@ -21,14 +23,28 @@ import {HelmetProvider} from "react-helmet-async"
 // this means you can dynamically change the content 
 // of head tags based on state or probs
 
+// helmetprovider
+{/* not a visiual component,wrap app,perform addition check,warning */}
+    
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    
+
     <HelmetProvider>
-      {/*CssBaseline sare elem me kuc css add krta */}
       <CssBaseline/>
-      <App />
+      <ChatApp />
     </HelmetProvider>
+    {/* <>
+    <HelmetProvider>
+        <BrowserRouter>
+
+            <Routes>
+                <Route path="/app" element={<App/>}/>
+                <Route path="/" element={<ChatApp/>} />
+            </Routes>
+        </BrowserRouter>
+    </HelmetProvider>
+    </>
+     */}
     
   </React.StrictMode>,
 )

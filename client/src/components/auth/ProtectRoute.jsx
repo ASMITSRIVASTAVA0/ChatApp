@@ -17,6 +17,7 @@ const ProtectRoute = ({childrenAsmit,user,redirect="/login"}) => {
 
     // return children?children:<div>asmit</div>
     return childrenAsmit?childrenAsmit:<Outlet/>
+    
     // Outlet===
     //      outlet is placeholder for child route 
     //      within parent route when using nested routing

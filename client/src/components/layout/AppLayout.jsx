@@ -11,6 +11,8 @@ import {Grid} from "@mui/material";
 
 // higher order component, jisme wrappedcomponent as para aya
 const AppLayout=()=>(WrappedComponent)=>{
+
+    // props are way to pass data from par component to child(parameter)
     return (props)=>{
         return (
             // <div>
@@ -23,6 +25,8 @@ const AppLayout=()=>(WrappedComponent)=>{
                 {/* user defined header */}
                 <Header />
                 {/* <br></br> */}
+
+                
                 <Grid 
                 container 
                 // height={"100vh"} 
@@ -53,7 +57,8 @@ const AppLayout=()=>(WrappedComponent)=>{
                     height={"100%"}
                     bgcolor="primary.main"
                     >
-                        <WrappedComponent {...props}/>
+                        {/* <WrappedComponent {...props}/> */}
+                        <WrappedComponent/>
                     </Grid>
 
                     <Grid 
@@ -64,10 +69,10 @@ const AppLayout=()=>(WrappedComponent)=>{
                     sx={{
                         display:{xs:"none",md:"block"},
                         padding:"2rem",
-                        bgcolor:"rgba(0,0,0,0.85)",
+                        // bgcolor:"rgba(0,0,0,0.85)",
                     }}
                     height={"100%"}
-                    // bgcolor="primary.main"
+                    bgcolor="rgba(0,0,0,0.85)"
                     >
                         Third
                     </Grid>
@@ -75,7 +80,11 @@ const AppLayout=()=>(WrappedComponent)=>{
 
             
                 {/* {props} */}
-                <WrappedComponent {...props}/>
+
+
+                {/* <WrappedComponent {...props}/> */}
+                <WrappedComponent/>
+                
                 <div>Footer</div>
             
             </>
