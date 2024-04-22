@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react'
-import {AppBar, Box, Icon, IconButton, Toolbar,Tooltip,Typography} from "@mui/material";
+import {AppBar, Backdrop, Box, Icon, IconButton, Toolbar,Tooltip,Typography} from "@mui/material";
 // import {orange} from '../constants/color';
 // import "./constants/color.js";
 // import {orange,red} from "@mui/material/colors";
@@ -7,7 +7,13 @@ import {useState} from "react";
 
 
 // import {orange} from "../../constants/color.js";
-import {Add as AddIcon, Group as GroupIcon, Logout as LogoutIcon, Menu as MenuIcon,Notifications as NotificationsIcon,Search as SearchIcon} from "@mui/icons-material"
+import {Add as AddIcon, 
+  Group as GroupIcon, 
+  Logout as LogoutIcon, 
+  Menu as MenuIcon,
+  Notifications as NotificationsIcon,
+  Search as SearchIcon
+} from "@mui/icons-material"
 
 import { useNavigate } from 'react-router-dom';
 // import SearchDialog from '../specific/SearchDialog';
@@ -25,15 +31,17 @@ import { useNavigate } from 'react-router-dom';
 // Tooltip=
 //    provide info when hover over an elem inside it
 
-const SearchDialog=lazy(()=>{
-  import("../specific/SearchDialog.jsx");
-})
-const Notifications=lazy(()=>{
-  import("../specific/Notifications.jsx");
-})
-const NewGroup=lazy(()=>{
-  import("../specific/NewGroup.jsx");
-})
+const SearchDialog=lazy(
+  ()=>
+  import("../specific/SearchDialog.jsx")
+
+)
+const Notifications=lazy(
+  ()=>import("../specific/Notifications.jsx")
+)
+const NewGroup=lazy(
+  ()=>import("../specific/NewGroup.jsx")
+)
 
 
 
@@ -52,11 +60,11 @@ const Header = () => {
 
   const handleMobile=()=>{
     console.log("mobile");
-    // setIsMobile((prev)=>!(prev));
+    setIsMobile((prev)=>!(prev));
   }
   const openSearch=()=>{
-    console.log("search");
-    // setIsSearch((prev)=>!(prev));
+    // console.log("search");
+    setIsSearch((prev)=>!(prev));
   }
   const openNewGroup=()=>{
     // console.log("newgroup");
@@ -66,14 +74,10 @@ const Header = () => {
     // console.log("mangegroup");
     
   }
-  // const navigateToGroup=()=>{
-  //   console.log("navigate");
-  // }
-
   const navigate= useNavigate();
 
   const navigateToGroup=()=>{
-    navigate("/groups");
+    navigate("/chat/groups");
   }
 
   const logoutHandler=()=>{
@@ -106,6 +110,7 @@ const Header = () => {
             <Toolbar
             sx={{
               // bgcolor:"black",
+            
             }}
             >
               <Typography
@@ -123,8 +128,8 @@ const Header = () => {
               <Box
               sx={{
                 display:{xs:"block",
-                sm:"none",
-                bgcolor:"gold",
+                        sm:"none",
+                        bgcolor:"gold",
               }
               }}
               >
@@ -202,9 +207,16 @@ const Header = () => {
 
         {
           isSearch&&(
+          
             // <SearchDialog/>
-            <Suspense fallback={<div>Loading...</div>}>
-              <SearchDialog/>
+            <Suspense fallback={<Backdrop open={true}/>}>
+              <SearchDialog
+              sx={{
+                // bgcolor:"red",
+                // display:"none",
+              }}
+              />
+              {/* <div>asmit</div> */}
             </Suspense>
           )
         }
@@ -213,7 +225,8 @@ const Header = () => {
         {
           isNotification&&(
             // <SearchDialog/>
-            <Suspense fallback={<div>Loading...</div>}>
+            // <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Backdrop open={true}/>}>
               <Notifications/>
             </Suspense>
           )
@@ -223,7 +236,8 @@ const Header = () => {
         {
           isNewGroup&&(
             // <SearchDialog/>
-            <Suspense fallback={<div>Loading...</div>}>
+            // <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Backdrop open={true}/>}>
               <NewGroup/>
             </Suspense>
           )

@@ -2,7 +2,11 @@ import React from 'react'
 
 const Notifications = () => {
   return (
-    <div>Notifications</div>
+    <div
+    style={{
+      backgroundColor:"yellowgreen",
+    }}
+    >Notifications</div>
   )
 }
 

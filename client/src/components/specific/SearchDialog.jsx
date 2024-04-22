@@ -2,7 +2,12 @@ import React from 'react'
 
 const SearchDialog = () => {
   return (
-    <div>Search</div>
+    <div
+    style={{
+      backgroundColor:"red",
+      // height:"5rem",
+    }}
+    >Search</div>
   )
 }
 

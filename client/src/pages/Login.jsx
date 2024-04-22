@@ -60,7 +60,7 @@ const Login = () => {
     <div 
     style={{
     backgroundImage:
-    "linear-gradient(red,blue)"
+    "linear-gradient(black,rgb(4,0,48))"
     // "linear-gradient(rgba(255,225,209,1),rgba(249,159,159,1))"
     }}
     >
@@ -79,7 +79,7 @@ const Login = () => {
       // width:"50%"
       // backgroundColor:"red",
     }}>
-      <Paper elevation={3} sx={{padding:4,display:"flex",flexDirection:"column",alignItems:"center"}}>
+      <Paper elevation={24} sx={{padding:4,display:"flex",flexDirection:"column",alignItems:"center"}}>
       {/* elevation={3} sets elevation level of paper, giving a shadow effect ,3 represent elevation level */}
           {
             // isLogin?<span>Login</span>:<span>Register</span>
@@ -116,6 +116,8 @@ const Login = () => {
                   onChange={username.changeHandler}
                   />
 
+
+                  {/* username is obj in 6pp package */}
                   {
                     username.error&&(
                       <Typography color="error" variant="caption">
@@ -137,7 +139,7 @@ const Login = () => {
 
 
                   <MUI.Button
-                    sx={{marginTop:"0rem"}}
+                    sx={{marginTop:"0.5rem"}}
                     variant="contained"//contained se blue color ki button
                     color="primary"
                     type="submit"
@@ -179,16 +181,23 @@ const Login = () => {
 
 
                 {/*stack component of material ui used to stack child component vertically by defalt  */}
-                <Stack position={"relative"} width={"10rem"} margin={"auto"} >
+                <Stack 
+                position={"relative"} 
+                width={"10rem"} 
+                margin={"auto"}
+                // bgcolor={"red"}
+                >
                   <Avatar
+
+                  src={avatar.preview}
                   sx={{
                     width:"10rem",
                     height:"10rem",
                     objectFit:"contain",
+                    // bgcolor:"Green",
                   }}
                   
                   // const avatar=useFileHandler("single");//defined in 6pp package
-                  src={avatar.preview}
 
                   >
                     

@@ -29,9 +29,15 @@ import { BrowserRouter, Routes,Route } from 'react-router-dom'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
+    {/* agar helment provider nhi to routes me dynamice import me dikkat */}
     <HelmetProvider>
       <CssBaseline/>
-      <ChatApp />
+      <div 
+      // onContextMenu={event=>event.preventDefault()}
+      >
+        <ChatApp />
+      </div>
+      
     </HelmetProvider>
     {/* <>
     <HelmetProvider>

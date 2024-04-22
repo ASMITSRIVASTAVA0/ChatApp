@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
@@ -10,12 +10,16 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 // Route=
 //    component to define route
 
+// suspense=
+//    used with lazy() for dynamic loading component
 
 import {lazy} from "react"
 
 // lazy FUNCTION allows to dynamically import react components
 // used for code-splitting,i.e. 
 // only load then when needed(route pr req bheji)
+
+import {LayoutLoader} from "./components/layout/Loaders.jsx";
 
 const Home=lazy(
 ()=>import("./pages/Home.jsx")
@@ -50,16 +54,19 @@ const ChatApp = () => {
   return (
     <BrowserRouter>
 
+      {/* <Suspense fallback={<div>loading...</div>}> */}
+      <Suspense fallback={<LayoutLoader/>}>
         <Routes>
 
           
-
+          <Route path="/app" element={<App/>}/>
+            
           {/* <Route path="/asmit" element={<ProtectRoute user={user}/>}> */}
           <Route element={<ProtectRoute user={user} /*redirect='/groups'*/ />}>
           {/* ProtectRoute ke 3 child, one of them render hoga */}
           {/* samajh lo wrap kiya routes ko ,jb 3 child ke routes me req to pehle ProtectRoute jayega */}
 
-            <Route path="/app" element={<App/>}/>
+            {/* <Route path="/app" element={<App/>}/> */}
             <Route path="/chat/home" element={<Home/>}/>
             <Route path="/chat/chats/:chatId" element={<Chat/>}/>
             <Route path="/chat/groups" element={<Groups/>}/>
@@ -68,28 +75,16 @@ const ChatApp = () => {
 
           <Route element={<ProtectRoute user={!user}/>}>
 
-            <Route path="/asmitlogin" element={<Login/>}/>
+            <Route path="/login" element={<Login/>}/>
 
           </Route>
-
-          {/* <Route path="/login" element={<Login/>}/> */}
-          <Route
-            path="/login"
-            element={
-
-              <ProtectRoute user={!user} /*redirect="/"*/>
-
-                <Login/>
-              
-              </ProtectRoute>
-
-            }
-          />
 
           {/* Not found */}
           <Route path="*" element={<NotFound/>}/>
 
         </Routes>
+
+      </Suspense>
     </BrowserRouter>
   )
 }

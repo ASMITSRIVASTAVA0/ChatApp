@@ -2,6 +2,9 @@ import React from 'react'
 import Header from "./Header.jsx";
 import Title from '../shared/Title.jsx';
 import {Grid} from "@mui/material";
+import ChatList from '../specific/ChatList.jsx';
+import { sampleChats } from '../../constants/sampleData.js';
+import { useParams } from 'react-router-dom';
 // const AppLayout = () => {
 //   return (
 //     <div>AppLayout</div>
@@ -12,8 +15,21 @@ import {Grid} from "@mui/material";
 // higher order component, jisme wrappedcomponent as para aya
 const AppLayout=()=>(WrappedComponent)=>{
 
+    
+
     // props are way to pass data from par component to child(parameter)
     return (props)=>{
+        
+        const params=useParams();
+        // console.log(params);
+        const chatId=params.chatId;
+        // console.log("chatid"+chatId);
+
+        const handleDeleteChat=(myevent,_id,groupChat)=>{
+            myevent.preventDefault();
+            console.log("delete chat",_id,groupChat);
+        }
+
         return (
             // <div>
             <>
@@ -40,19 +56,47 @@ const AppLayout=()=>(WrappedComponent)=>{
                 >
                     <Grid
                     item
-                    sm={3}//small me 4 
+                    sm={4}//small me 4 
                     md={3}
                     sx={{display:{xs:"none",sm:"block"}}}
                     height={"100%"}
                     bgcolor="green"
                     >
-                        First
+
+                        {/* <ChatList chats={[1,2,3,4,5]} /> */}
+
+                        {/* sampleChat=[{...,...,...}] */}
+                        {/* chats me arr bheja */}
+
+
+                        {/* <ChatList chats={sampleChats}/> */}
+
+                        <ChatList 
+                        chats={sampleChats} 
+                        chatId={chatId}
+                        
+                        // arr of obj
+                        newMessagesAlert={[
+                            {
+                                // chatId:"1",
+                                chatId,
+                                count:4,
+                            },
+                        ]}
+                        onlineUsers={["1","2"]}
+
+                        handleDeleteChat={handleDeleteChat}
+                        />
+
+
+                        {/* <ChatList chats={ [sampleChats,sampleChats,sampleChats] } /> */}
                     </Grid>
 
                     <Grid
                     item
                     xs={12}//main screen to puri grid
-                    sm={5}
+                    sm={8}
+                    md={5}
                     lg={6}
                     height={"100%"}
                     bgcolor="primary.main"
@@ -63,7 +107,7 @@ const AppLayout=()=>(WrappedComponent)=>{
 
                     <Grid 
                     item
-                    xs={4}
+                    // xs={4}
                     md={4}
                     lg={3}
                     sx={{

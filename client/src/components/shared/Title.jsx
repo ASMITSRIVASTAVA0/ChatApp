@@ -8,7 +8,18 @@ const Title=({title="Chat",description="this is description"})=>{
   return <Helmet>
 
 
+    {
+    /* meta data=info about content of webpage that is not part of content,
+    provide addtional context for browsers,search engines,etc 
+
+        
+        
+    // helmet used for managing document head of react app,
+    // allow to dynamically set meta tags,titlge,link tags,<head> section of HTML element
+    
+
     {/* ye HTML  me head me jo title hota h */}
+
     <title>{title}</title>
     <meta name="description" content={description}/>
   </Helmet>

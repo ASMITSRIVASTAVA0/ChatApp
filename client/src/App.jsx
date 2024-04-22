@@ -1,9 +1,9 @@
 import React from 'react'
 
-import MainHeader from './components/layout/MainHeader.jsx'
-// import Header from './components/layout/Header.jsx'
-import SearchDialog from './components/specific/SearchDialog.jsx'
+import MainHeader from './appcomponents/layout/MainHeader.jsx'
+
 import AppLayout from './appcomponents/layout/AppLayout.jsx'
+import Post from "./appcomponents/specifics/post/post.jsx"
 const App = () => {
   return (
     <>
@@ -12,6 +12,10 @@ const App = () => {
     <MainHeader />
 
     <AppLayout/>
+    <Post/>
+    <Post/>
+    <Post/>
+    <Post/>
 
     </>
   )
