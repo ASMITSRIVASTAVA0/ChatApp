@@ -25,13 +25,13 @@ const ChatList = (
   return (
     <Stack 
     sx={{
-        bgcolor:"red",
+        bgcolor:"white",
         // height:"5rem",
         // height:"100%",
 
         // chl n rha
+        // display:"row",
         // alignContent:"row",
-        // displayFlex:"row",
 
     }}
     width={w} 
@@ -58,9 +58,13 @@ const ChatList = (
             
                         
                 */
+
+                // destructuring
                 const {avatar,_id,name,groupChat,members}=data;
 
                 // newMessageAlerts obj defined in probs
+
+                // newMessageAlert=[{},{},{}]
                 const newMessageAlert=newMessagesAlert.find(
                     // ({chatId})=>alert.chatId===_id
                     ({chatId})=>chatId===_id
@@ -74,6 +78,7 @@ const ChatList = (
                 // return to stack as arr.map ko return
                 return (
                     <>
+                        
                         {/* <div>{data.name}</div> */}
                         <ChatItem 
                         newMessageAlert={newMessageAlert} 

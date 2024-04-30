@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async'
 
 const Title=({title="Chat",description="this is description"})=>{
   // return <div>Title</div>
+  
   return <Helmet>
 
 
@@ -22,6 +23,7 @@ const Title=({title="Chat",description="this is description"})=>{
 
     <title>{title}</title>
     <meta name="description" content={description}/>
+    
   </Helmet>
 }
 export default Title;

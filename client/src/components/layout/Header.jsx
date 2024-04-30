@@ -89,19 +89,22 @@ const Header = () => {
 
   
 
-    return <>
+    return (
+    <>
 
         {/* div==box */}
 
         <Box
         sx={{flexGrow:1,
-            bgcolor:""}}
+            // bgcolor:"#ea7070"
+          }}
         height={"4rem"}
 
         >
           <AppBar
           position="static"
           sx={{
+            // bgcolor:"darkred",
             bgcolor:"#ea7070",
             // bgcolor:orange
           }}
@@ -144,7 +147,7 @@ const Header = () => {
 
               <Box
               sx={{
-                bgcolor:"red",
+                // bgcolor:"red",
                 flexGrow:1,
                 // width:"50%"
                 // widht:"6rem",
@@ -206,15 +209,21 @@ const Header = () => {
         </Box>
 
         {
+
           isSearch&&(
           
             // <SearchDialog/>
-            <Suspense fallback={<Backdrop open={true}/>}>
+                        // <Suspense fallback={<Backdrop open={true}/>}>
+              
+
+            // SearchDialog k all time bg dark k reason suspense nhi, balki dialog open h
+            <Suspense fallback={<Backdrop open/>}>
               <SearchDialog
-              sx={{
-                // bgcolor:"red",
-                // display:"none",
-              }}
+              handler={openSearch}
+              // sx={{
+              //   // bgcolor:"red",
+              //   // display:"none",
+              // }}
               />
               {/* <div>asmit</div> */}
             </Suspense>
@@ -226,7 +235,7 @@ const Header = () => {
           isNotification&&(
             // <SearchDialog/>
             // <Suspense fallback={<div>Loading...</div>}>
-            <Suspense fallback={<Backdrop open={true}/>}>
+            <Suspense fallback={<Backdrop open/>}>
               <Notifications/>
             </Suspense>
           )
@@ -240,11 +249,21 @@ const Header = () => {
             <Suspense fallback={<Backdrop open={true}/>}>
               <NewGroup/>
             </Suspense>
+            // <Suspense fallback={
+            //   <Backdrop open={true}>
+            //     <CircularProgress color="inherit" />
+            //   </Backdrop>
+            // }>
+            //   <NewGroup setLoading={setLoading} />
+            // </Suspense>
+
+          
           )
         }
 
 
     </>
+    )
 }
 
 

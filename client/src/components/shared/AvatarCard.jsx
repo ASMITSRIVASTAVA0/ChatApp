@@ -5,7 +5,21 @@ const AvatarCard = ({avatar=[],max=4}) => {
   return (
     // <div>AvatarCard</div>
 
-    <Stack direction={"row"} spacing={0.5}>
+    <Stack 
+    direction={"row"} 
+    spacing={0.5}
+    sx={{
+        // backgroundColor:"black",
+    }}
+    >
+
+        {/* max Prob in AvatarGroup=
+                determine max no. of avatar to display before collapsing then into a single avatar
+                when no. of avatar exceeds max, material ui collapse avatars,display only max avatar,
+                with count indicationg no. of hidden avatars,
+        */}
+        
+
         <AvatarGroup max={max}>
             <Box width={"5rem"} height={"3rem"}>
 

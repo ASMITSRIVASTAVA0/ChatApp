@@ -5,6 +5,8 @@ import {Grid, Skeleton,Stack} from "@mui/material";
 // skeleton=
 //    create loading placeholder,usually mimic layout of content that is being fetched
 
+// stack=
+//    layout components vertically/hoziontally with predefined spacing
 
 
 // const Loaders = () => {
@@ -41,8 +43,8 @@ export const LayoutLoader=()=>{
                       content being fetched or loaded async
                       used when data fetched from api
                       create loading placeholder
-                      variant=rectangular (or) text
-              */}
+                      variant=rectangular (or) text (or) circular
+              */} 
             
                 <Skeleton variant="rectangular" height={"100vh"} bgcolor="black"/>
             </Grid>
@@ -68,7 +70,7 @@ export const LayoutLoader=()=>{
                <Stack spacing={"1rem"}>
                   {
 
-                    // Arrays.from create arr of specific len
+                    // Array.from create arr of specific len
 
                     Array.from({length:10}).map((_,index)=>(
                     <Skeleton key={index} variant={"rounded"} height={"5rem"}/>
@@ -99,7 +101,6 @@ export const LayoutLoader=()=>{
 
     
     </>
-    // </div>
 
   )
 }

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 // ReactDOm used to render react elem into dom
 
 import ChatApp from './ChatApp.jsx'
-import App from "./App.jsx"
 // import './index.css'
 
 import {CssBaseline} from "@mui/material"

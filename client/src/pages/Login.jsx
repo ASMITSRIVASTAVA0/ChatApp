@@ -7,7 +7,8 @@ import {Container,Paper,Typography,Stack,Avatar,IconButton} from "@mui/material"
 // contaier provide layout container, 
 // and paper creates a paper like surface with elevation(0-24) and shadows
 // typography===display text with predefined styles,ensure consistent typography across app
-// stack se component ke upar component rkhte
+// stack se component ke upar component rkhte,
+// stack as container bhi use hota
 
 // import * krke sb nhi aate as MUI LIKH lo
 import * as MUI from "@mui/material"
@@ -79,8 +80,17 @@ const Login = () => {
       // width:"50%"
       // backgroundColor:"red",
     }}>
-      <Paper elevation={24} sx={{padding:4,display:"flex",flexDirection:"column",alignItems:"center"}}>
+      <Paper 
+      elevation={24} 
+      sx={{
+        padding:4,
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"center"}}
+      >
       {/* elevation={3} sets elevation level of paper, giving a shadow effect ,3 represent elevation level */}
+
+          
           {
             // isLogin?<span>Login</span>:<span>Register</span>
             isLogin?(
@@ -91,6 +101,7 @@ const Login = () => {
 
                 {/* typography in material ui used to display text with predefined styles,ensure consistent typography across app */}
                 <Typography variant="h5" >Login</Typography>
+                
                 <form
                   style={{
                     padding:4,
@@ -186,6 +197,10 @@ const Login = () => {
                 width={"10rem"} 
                 margin={"auto"}
                 // bgcolor={"red"}
+                sx={{
+                  // display:"column",
+                  
+                }}
                 >
                   <Avatar
 

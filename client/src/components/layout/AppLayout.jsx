@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from "./Header.jsx";
 import Title from '../shared/Title.jsx';
-import {Grid} from "@mui/material";
+import {Backdrop, Dialog, DialogTitle, Grid, Skeleton} from "@mui/material";
 import ChatList from '../specific/ChatList.jsx';
 import { sampleChats } from '../../constants/sampleData.js';
 import { useParams } from 'react-router-dom';
+import Profile from '../specific/Profile.jsx';
 // const AppLayout = () => {
 //   return (
 //     <div>AppLayout</div>
@@ -15,16 +16,17 @@ import { useParams } from 'react-router-dom';
 // higher order component, jisme wrappedcomponent as para aya
 const AppLayout=()=>(WrappedComponent)=>{
 
-    
+    // const params=useParams();
+    // const chatId=params.chatId;
+
 
     // props are way to pass data from par component to child(parameter)
     return (props)=>{
-        
-        const params=useParams();
-        // console.log(params);
-        const chatId=params.chatId;
-        // console.log("chatid"+chatId);
+        console.log(props);//{}
 
+        const params=useParams();
+        const chatId=params.chatId;
+        // console.log("params="+params.chatId);
         const handleDeleteChat=(myevent,_id,groupChat)=>{
             myevent.preventDefault();
             console.log("delete chat",_id,groupChat);
@@ -33,7 +35,12 @@ const AppLayout=()=>(WrappedComponent)=>{
         return (
             // <div>
             <>
-
+                {/* <Dialog open>
+                    <DialogTitle>title</DialogTitle>
+                    asmit
+                </Dialog> */}
+                {/* <Backdrop open/> */}
+                {/* <Skeleton variant={"circular"}>asmit</Skeleton> */}
                 {/* user defined Title */}
                 <Title title={"asmit header chat"}/>
                 {/* <div>Header</div> */}
@@ -60,19 +67,23 @@ const AppLayout=()=>(WrappedComponent)=>{
                     md={3}
                     sx={{display:{xs:"none",sm:"block"}}}
                     height={"100%"}
-                    bgcolor="green"
+                    // bgcolor="green"
                     >
 
                         {/* <ChatList chats={[1,2,3,4,5]} /> */}
 
-                        {/* sampleChat=[{...,...,...}] */}
-                        {/* chats me arr bheja */}
+                        
+                        {/* chats me arr of obj bheja */}
 
 
                         {/* <ChatList chats={sampleChats}/> */}
-
+                        
+                        
                         <ChatList 
+                        /* sampleChat=[{...,...,...}] */
                         chats={sampleChats} 
+
+                        // /chat/home pr chatId=notdefined, pr chats dikhege gi as sample data
                         chatId={chatId}
                         
                         // arr of obj
@@ -83,7 +94,7 @@ const AppLayout=()=>(WrappedComponent)=>{
                                 count:4,
                             },
                         ]}
-                        onlineUsers={["1","2"]}
+                        onlineUsers={["1",]}
 
                         handleDeleteChat={handleDeleteChat}
                         />
@@ -99,7 +110,7 @@ const AppLayout=()=>(WrappedComponent)=>{
                     md={5}
                     lg={6}
                     height={"100%"}
-                    bgcolor="primary.main"
+                    // bgcolor="primary.main"
                     >
                         {/* <WrappedComponent {...props}/> */}
                         <WrappedComponent/>
@@ -118,7 +129,7 @@ const AppLayout=()=>(WrappedComponent)=>{
                     height={"100%"}
                     bgcolor="rgba(0,0,0,0.85)"
                     >
-                        Third
+                        <Profile/>
                     </Grid>
                 </Grid>
 
@@ -127,9 +138,9 @@ const AppLayout=()=>(WrappedComponent)=>{
 
 
                 {/* <WrappedComponent {...props}/> */}
-                <WrappedComponent/>
+                {/* <WrappedComponent/>
                 
-                <div>Footer</div>
+                <div>Footer</div> */}
             
             </>
             // </div>

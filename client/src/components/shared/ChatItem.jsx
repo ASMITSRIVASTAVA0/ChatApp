@@ -13,6 +13,7 @@ import AvatarCard from './AvatarCard';
 const ChatItem = (
     // destructuring probs
     {
+        // avatar=["img1","img2","img3"];
         avatar=[],
         name,
         _id="asmitid",
@@ -50,6 +51,8 @@ const ChatItem = (
             // gap:"10rem",
             gap:"1rem",
             alignItems:"center",
+            // backgroundColor:"red",
+            // height:"10rem",
             // padding:"0rem",
             padding:"1rem",
             backgroundColor:sameSender?"black":"unset",

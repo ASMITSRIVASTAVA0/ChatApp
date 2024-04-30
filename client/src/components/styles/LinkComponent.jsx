@@ -39,12 +39,16 @@ import {Link as LinkComponent} from "react-router-dom"
 //         }
     
 // `;
+
+
+// LinkedComponent mui k component joki navigation me help jb click kiya jyega
 export const Link=styled(LinkComponent)(
     {
         textDecoration:"none",
-        color:"blue",
+        color:"black",
+        fontWeight:900,
         padding:"1rem",
-        hover:{
+        "&:hover":{
             backgroundColor:"rgba(0,0,0,0.1)",
         }
     }
